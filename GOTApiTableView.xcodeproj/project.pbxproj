@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F8607A82A5BA04B00C7FFE5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8607A62A5BA04B00C7FFE5 /* TableViewCell.swift */; };
 		4F8607A92A5BA04B00C7FFE5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8607A72A5BA04B00C7FFE5 /* TableViewCell.xib */; };
+		4F8607AC2A5BA28700C7FFE5 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8607AB2A5BA28700C7FFE5 /* APIModel.swift */; };
 		4FA0E74A2A5A3C22002E9EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0E7492A5A3C22002E9EAB /* AppDelegate.swift */; };
 		4FA0E74C2A5A3C22002E9EAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0E74B2A5A3C22002E9EAB /* SceneDelegate.swift */; };
 		4FA0E74E2A5A3C22002E9EAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0E74D2A5A3C22002E9EAB /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		4F8607A62A5BA04B00C7FFE5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		4F8607A72A5BA04B00C7FFE5 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		4F8607AB2A5BA28700C7FFE5 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		4FA0E7462A5A3C22002E9EAB /* GOTApiTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GOTApiTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA0E7492A5A3C22002E9EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA0E74B2A5A3C22002E9EAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		4F8607AA2A5BA27300C7FFE5 /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F8607AB2A5BA28700C7FFE5 /* APIModel.swift */,
+			);
+			path = APIModel;
+			sourceTree = "<group>";
+		};
 		4FA0E73D2A5A3C22002E9EAB = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 		4FA0E7482A5A3C22002E9EAB /* GOTApiTableView */ = {
 			isa = PBXGroup;
 			children = (
+				4F8607AA2A5BA27300C7FFE5 /* APIModel */,
 				4F8607A52A5BA02500C7FFE5 /* TableViewCell */,
 				4FA0E7492A5A3C22002E9EAB /* AppDelegate.swift */,
 				4FA0E74B2A5A3C22002E9EAB /* SceneDelegate.swift */,
@@ -277,6 +288,7 @@
 				4F8607A82A5BA04B00C7FFE5 /* TableViewCell.swift in Sources */,
 				4FA0E74A2A5A3C22002E9EAB /* AppDelegate.swift in Sources */,
 				4FA0E74C2A5A3C22002E9EAB /* SceneDelegate.swift in Sources */,
+				4F8607AC2A5BA28700C7FFE5 /* APIModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet var tableView: UITableView!
+    
+    var data = [APIModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,7 +22,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func getData(completion: @escaping ((APIModel) -> Void)) {
+    func getData(completion: @escaping (([APIModel]) -> Void)) {
         
         guard let url = URL(string: "https://thronesapi.com/api/v2/Characters") else {
             return
@@ -28,7 +33,7 @@ class ViewController: UIViewController {
             if data != nil && error == nil {
                 do {
                     let decoder = JSONDecoder()
-                    let response = try decoder.decode(APIModel.self, from: data!)
+                    let response = try decoder.decode([APIModel].self, from: data!)
                     completion(response)
                 } catch {
                     print(String(describing: error))
@@ -37,5 +42,20 @@ class ViewController: UIViewController {
         }
         task.resume()
     }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")
+        cell?.textLabel?.text = data[indexPath.row].firstName
+        return cell!
+    }
+    
+    
+    
 }
 

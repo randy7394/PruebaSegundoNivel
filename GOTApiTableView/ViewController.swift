@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         tableView.register(cell, forCellReuseIdentifier: "TableViewCell")
     }
 
-//    func getData(completion: @escaping (([APIModel]) -> Void))
     func getData(completion: @escaping (([APIModel]) -> Void)) {
         
         let urlstring = "https://thronesapi.com/api/v2/Characters"
@@ -50,7 +49,6 @@ class ViewController: UIViewController {
                     let decoder = JSONDecoder()
                     let response = try decoder.decode([APIModel].self, from: data!)
                     completion(response)
-                    //print(response)
                 } catch {
                     print(String(describing: error))
                 }
@@ -74,6 +72,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
      return UITableViewCell()
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let secondViewController = storyboard?.instantiateViewController(identifier:"DetailsViewController") as? DetailsViewController {
+            
+            secondViewController.detailViewCharacterName = dataModel[indexPath.row].fullName!
+            secondViewController.detailViewCharacterFamily = dataModel[indexPath.row].family!
+            secondViewController.detailViewCharacterTittle = dataModel[indexPath.row].title!
+            secondViewController.characterImage = dataModel[indexPath.row].image!
+            self.navigationController?.pushViewController(secondViewController, animated: true)
+        }
+    }
 }
 

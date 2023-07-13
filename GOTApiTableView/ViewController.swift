@@ -12,29 +12,45 @@ class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var data = [APIModel]()
+    var dataModel = [APIModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getData() { result in
-            print(result)
+        tableView.dataSource = self
+        tableView.delegate = self
+        registerTable()
+        super.viewDidLoad()
+        
+        getData { data in
+            self.dataModel = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
+    
+    private func registerTable () {
+        let cell = UINib(nibName: "TableViewCell", bundle: nil)
+        tableView.register(cell, forCellReuseIdentifier: "TableViewCell")
+    }
 
+//    func getData(completion: @escaping (([APIModel]) -> Void))
     func getData(completion: @escaping (([APIModel]) -> Void)) {
         
-        guard let url = URL(string: "https://thronesapi.com/api/v2/Characters") else {
+        let urlstring = "https://thronesapi.com/api/v2/Characters"
+        guard let url = URL(string: urlstring) else {
             return
         }
         
         let session = URLSession.shared
-        let task = session.dataTask(with: URLRequest(url: url)) { data, response, error in
+        let task = session.dataTask(with: url) { data, response, error in
             if data != nil && error == nil {
                 do {
                     let decoder = JSONDecoder()
                     let response = try decoder.decode([APIModel].self, from: data!)
                     completion(response)
+                    //print(response)
                 } catch {
                     print(String(describing: error))
                 }
@@ -44,18 +60,20 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return dataModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")
-        cell?.textLabel?.text = data[indexPath.row].firstName
-        return cell!
+      if let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell {
+            
+            cell.cellFullName.text = dataModel[indexPath.row].fullName
+            cell.cellFamilyName.text = dataModel[indexPath.row].family
+            return cell
+        }
+     return UITableViewCell()
     }
-    
-    
-    
+
 }
 

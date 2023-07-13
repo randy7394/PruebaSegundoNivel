@@ -7,12 +7,13 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
 
     @IBOutlet var characterImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var familyNameLabel: UILabel!
     @IBOutlet var tittleLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

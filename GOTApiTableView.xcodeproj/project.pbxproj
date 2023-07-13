@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0DF22C2A5F9CED002EBE70 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DF22B2A5F9CED002EBE70 /* DetailsViewController.swift */; };
 		4F8607A82A5BA04B00C7FFE5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8607A62A5BA04B00C7FFE5 /* TableViewCell.swift */; };
 		4F8607A92A5BA04B00C7FFE5 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8607A72A5BA04B00C7FFE5 /* TableViewCell.xib */; };
 		4F8607AC2A5BA28700C7FFE5 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8607AB2A5BA28700C7FFE5 /* APIModel.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F0DF22B2A5F9CED002EBE70 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		4F8607A62A5BA04B00C7FFE5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		4F8607A72A5BA04B00C7FFE5 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		4F8607AB2A5BA28700C7FFE5 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				4FA0E7492A5A3C22002E9EAB /* AppDelegate.swift */,
 				4FA0E74B2A5A3C22002E9EAB /* SceneDelegate.swift */,
 				4FA0E74D2A5A3C22002E9EAB /* ViewController.swift */,
+				4F0DF22B2A5F9CED002EBE70 /* DetailsViewController.swift */,
 				4FA0E74F2A5A3C22002E9EAB /* Main.storyboard */,
 				4FA0E7522A5A3C23002E9EAB /* Assets.xcassets */,
 				4FA0E7542A5A3C23002E9EAB /* LaunchScreen.storyboard */,
@@ -289,6 +292,7 @@
 				4FA0E74A2A5A3C22002E9EAB /* AppDelegate.swift in Sources */,
 				4FA0E74C2A5A3C22002E9EAB /* SceneDelegate.swift in Sources */,
 				4F8607AC2A5BA28700C7FFE5 /* APIModel.swift in Sources */,
+				4F0DF22C2A5F9CED002EBE70 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

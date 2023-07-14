@@ -14,22 +14,21 @@ final class DetailsViewController: UIViewController {
     @IBOutlet var familyNameLabel: UILabel!
     @IBOutlet var tittleLabel: UILabel!
     
-    var detailViewCharacterImg = UIImage()
-    var detailViewCharacterName = String()
-    var detailViewCharacterFamily = String()
-    var detailViewCharacterTittle = String()
+    var character: APIModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        characterImage.image = detailViewCharacterImg
-        nameLabel.text = detailViewCharacterName
-        familyNameLabel.text = detailViewCharacterFamily
-        tittleLabel.text = detailViewCharacterTittle
         
+        nameLabel.text = character?.fullName
+        familyNameLabel.text = character?.family
+        tittleLabel.text = character?.title
+    
+        guard let imageURL = character?.imageUrl else { return }
+        characterImage.downloaded(from: imageURL)
     }
 }
 
+// funcion para descargar en la vista de detalle la imagen del JSON
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
         contentMode = mode

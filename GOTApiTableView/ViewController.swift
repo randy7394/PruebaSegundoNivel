@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var dataModel = [APIModel]()
+    var data = [APIModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         getData { data in
-            self.dataModel = data
+            self.data = data
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -60,28 +60,25 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataModel.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      if let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell {
             
-            cell.cellFullName.text = dataModel[indexPath.row].fullName
-            cell.cellFamilyName.text = dataModel[indexPath.row].family
+            cell.cellFullName.text = data[indexPath.row].fullName
+            cell.cellFamilyName.text = data[indexPath.row].family
             return cell
         }
-     return UITableViewCell()
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let secondViewController = storyboard?.instantiateViewController(identifier:"DetailsViewController") as? DetailsViewController {
-            
-            secondViewController.detailViewCharacterName = dataModel[indexPath.row].fullName!
-            secondViewController.detailViewCharacterFamily = dataModel[indexPath.row].family!
-            secondViewController.detailViewCharacterTittle = dataModel[indexPath.row].title!
-            secondViewController.characterImage = dataModel[indexPath.row].image!
+            secondViewController.character = data[indexPath.row]
             self.navigationController?.pushViewController(secondViewController, animated: true)
+            
         }
     }
+    
 }
-
